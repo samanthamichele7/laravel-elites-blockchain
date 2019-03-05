@@ -1,51 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Laravel Elites">
+    <meta name="application-name" content="Laravel Elites">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @if (isset($user))
+        <meta property="og:title" content="{{ $user->name . ' is a Laravel Elite!' }}">
+        <meta property="og:url" content="{{ config('app.url') }}/certificate/{{ $user->slug }}">
+    @else
+        <meta property="og:title" content="{{ 'Laravel Elites' }}">
+        <meta property="og:url" content="{{ config('app.url') }}">
+    @endif
+        <meta property="og:description" content="Do you have what it takes to join the inner circle?">
+        <meta name="twitter:card" content="summary">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
-<body class="bg-grey-lightest h-screen antialiased">
+<body class="bg-orange-lightest font-sans font-normal antialiased">
     <div id="app">
-        <nav class="bg-blue-darkest shadow mb-8 py-6">
-            <div class="container mx-auto px-6 md:px-0">
-                <div class="flex items-center justify-center">
-                    <div class="mr-6">
-                        <a href="{{ url('/') }}" class="text-lg font-semibold text-white no-underline">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                    </div>
-                    <div class="flex-1 text-right">
-                        @guest
-                            <a class="no-underline hover:underline text-grey-lightest text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            <a class="no-underline hover:underline text-grey-lightest text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @else
-                            <span class="text-grey-lightest text-sm pr-4">{{ Auth::user()->name }}</span>
-
-                            <a href="{{ route('logout') }}"
-                               class="no-underline hover:underline text-grey-lightest text-sm p-3"
-                               onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                {{ csrf_field() }}
-                            </form>
-                        @endguest
-                    </div>
-                </div>
-            </div>
-        </nav>
-
         @yield('content')
     </div>
-
-    <!-- Scripts -->
+    
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
