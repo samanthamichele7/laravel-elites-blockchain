@@ -7,9 +7,22 @@
         </a>
     </div>
 
-    <certificate :user="{{ json_encode(auth()->user()) }}"></certificate>
+    <div class="flex justify-center text-center">
+    <div class="max-w-4xl rounded overflow-hidden shadow-lg bg-white m-8 px-8 py-8">
+      <div class="border-2 p-8">
+        <img src="{{ $user->avatar}}" alt class="h-32 w-32 mb-8">
 
-    <div class="flex justify-center text-center pb-16">
-        <a href="/results" class="text-center text-grey-darker">See How Others Answered</a>
+        <p>
+          <a
+            href="https://github.com/{{$user->github_username}}"
+            target="__blank"
+            class="text-orange-darker"
+          >{{ $user->github_username }}</a>
+        </p>
+
+        <certify :user="{{ $user }}"></certify>
+      </div>
     </div>
+  </div>
+
 @endsection

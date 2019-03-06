@@ -3,9 +3,12 @@
 /public/storage
 /storage/*.key
 /vendor
+/resources/js/build/*
 .env
+truffle-config.js
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.DS_Store

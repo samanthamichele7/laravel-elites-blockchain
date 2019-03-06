@@ -23,6 +23,7 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 Route::middleware('auth')->group(function () {
     Route::resource('application', 'ApplicationController')->only(['index', 'store']);
     Route::get('certificate', 'CertificateController@index');
+    Route::get('certify/{slug}', 'CertifyController@show');
 });
 
 Route::get('certificate/{slug}', 'CertificateController@show');

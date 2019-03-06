@@ -9,6 +9,11 @@
 
     <div class="flex justify-center">
         <div class="max-w-2xl rounded overflow-hidden shadow-lg bg-white m-8">
+            <p class="text-center py-8 text-grey-darker bg-grey-lightest">
+                <a href="http://noplanstomerge.com/" target="__blank">
+                    <img src="/img/nptm.png" alt="No Plans to Merge banner" />
+                </a>
+            </p>
             <h2 class="text-grey-darker text-center font-thin text-4xl mb-6 pt-16 pb-8">
                 How do you stack up?
             </h2>

@@ -6,8 +6,19 @@ use App\User;
 
 class CertificateController extends Controller
 {
+    public function index()
+    {
+        return view('status');
+    }
+
     public function show($slug)
     {
-        return view('certificate', ['user' => User::where('github_username', $slug)->first()]);
+        $user = User::where('github_username', $slug)->first();
+
+        if (!$user) {
+            abort(404);
+        }
+        
+        return view('certificate', ['user' => $user]);
     }
 }

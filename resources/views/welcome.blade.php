@@ -16,13 +16,13 @@
                             Login <i class="fab fa-github"></i>
                         </a>
                     @else
-                        <div class="block text-grey-darker text-lg font-bold mb-8">
+                        <div class="block text-grey-darker text-lg font-bold m-8">
                             Hello, {{ auth()->user()->name }}! <a href="/application" class="text-orange-darker hover:text-orange-darkest">Let's find out if you're elite.</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
-                            <a href="{{ route('logout') }}"
-                                class="text-orange hover:text-orange-darker text-sm"
+                            <a href="{{ route('logout') }}" 
+                                class="block pt-4 text-orange hover:text-orange-darker text-sm"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 (Change user)
                             </a>

@@ -7,7 +7,17 @@
         </a>
     </div>
 
-    <certificate :user="{{ json_encode(auth()->user()) }}"></certificate>
+    <div class="flex justify-center text-center">
+        <div class="max-w-4xl rounded overflow-hidden shadow-lg bg-white m-8 px-8 py-8">
+            <div class="border-2 p-16">
+                <h2 class="text-grey-darker font-thin text-4xl mb-6 pt-8 pb-4">
+                    Your application is being processed
+                </h2>
+
+                <p class="italic">Check back soon for your results!</p>
+            </div>
+        </div>
+    </div>
 
     <div class="flex justify-center text-center pb-16">
         <a href="/results" class="text-center text-grey-darker">See How Others Answered</a>
